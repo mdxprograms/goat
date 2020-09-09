@@ -1,7 +1,19 @@
 import React, { useEffect, useState } from 'react';
 import { Route, Switch, BrowserRouter as Router } from 'react-router-dom'
 
-const Home = () => {
+type HomeStyle = {
+  background?: string,
+  color?: string,
+  padding?: string
+}
+
+const homeStyle: HomeStyle = {
+  background: "#444",
+  color: "lightblue",
+  padding: "12px",
+}
+
+const Home: React.FC = () => {
   const [ping, setPing] = useState("")
 
   const getPing = () => {
@@ -13,7 +25,7 @@ const Home = () => {
     getPing()
   }, [])
 
-  return <h1>{ping}</h1>
+  return <h1 style={homeStyle}>{ping}</h1>
 }
 
 const App = () => (
